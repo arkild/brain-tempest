@@ -32,5 +32,11 @@ router.delete('/:id', (req, res) => {
         .then(() => res.json({deletedIdeaId: req.params.id}))
 })
 
+//Index Route (Read)
+router.get('/', function(req, res) {
+    db.Idea.find({})
+        .then((ideas) => res.json(ideas))
+})
+
 //This line is needed or your middleware will break
 module.exports = router
