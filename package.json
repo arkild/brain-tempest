@@ -2,7 +2,6 @@
   "name": "brain-tempest",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "backend": "nodemon backend/server.js",
     "frontend": "vite",
