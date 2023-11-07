@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 
 const feedbackSchema = new mongoose.Schema({
+    name: {type: String, required: true},
     ideaRating: {type: Number, min: 0, max: 10, required: true},
     feedback: {type: String, required: true},
     dateAdded: {type: Date, default: Date.now}
