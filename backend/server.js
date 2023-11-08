@@ -14,6 +14,7 @@ const db = require('./models')
 // I'm coding out this line below for now until I need it.
 const feedbackCtrl = require('./controllers/feedbacks')
 const ideaCtrl = require ('./controllers/ideas')
+const usersCtrl = require('./controllers/users')
 
 // Create express
 const app = express();
@@ -30,6 +31,7 @@ app.use(express.json())
 //I'm commenting out this line below until I need it.
 app.use('/feedback', feedbackCtrl)
 app.use('/ideas', ideaCtrl)
+app.use('/users', usersCtrl)
 
 // Have the app listen to a specified port
 app.listen(process.env.PORT, function () {
