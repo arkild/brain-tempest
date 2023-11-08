@@ -76,7 +76,7 @@ router.post('/', authMiddleware, (req, res) => {
 router.put('/:id', authMiddleware, async (req, res) => {
     //Check for a User match on the editor and the poster
     const userIdea = await db.Idea.findById(req.params.id)
-    //The .toString method is required because the types were not matching and thus the === did not work
+    //The .toString() method is required because the types were not matching and thus the === did not work
     if (userIdea.userId.toString() === req.user.id) {
         //If we have a match, update the idea
         const newIdea = await db.Idea.findByIdAndUpdate(
@@ -87,6 +87,19 @@ router.put('/:id', authMiddleware, async (req, res) => {
         res.json(newIdea)
     } else {
         res.status(401).json({message: 'Invalid user or token'});
+    }
+})
+
+//Auth-based Delete Idea route
+router.delete('/:id', authMiddleware, async(req, res) => {
+    //Check for a match on idea poster and delete requester
+    const userIdea = await db.Idea.findById(req.params.id)
+    // We're using the .toString() method because the types don't match for === to work
+    if (userIdea.userId.toString() === req.user.id) {
+        const deletedIdea = await db.Idea.findByIdAndDelete(req.params.id)
+        res.send(`The idea ${deletedIdea.name} has been successfully deleted.`)
+    } else {
+        res.status(401).json({ message: 'Invalid user or token'});
     }
 })
 
