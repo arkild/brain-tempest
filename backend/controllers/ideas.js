@@ -72,6 +72,24 @@ router.post('/', authMiddleware, (req, res) => {
         .then(idea => res.json(idea))
 })
 
+//Auth-based Update Idea route
+router.put('/:id', authMiddleware, async (req, res) => {
+    //Check for a User match on the editor and the poster
+    const userIdea = await db.Idea.findById(req.params.id)
+    //The .toString method is required because the types were not matching and thus the === did not work
+    if (userIdea.userId.toString() === req.user.id) {
+        //If we have a match, update the idea
+        const newIdea = await db.Idea.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            {new: true}
+        )
+        res.json(newIdea)
+    } else {
+        res.status(401).json({message: 'Invalid user or token'});
+    }
+})
+
 //Index Route (Read)
 router.get('/', function(req, res) {
     db.Idea.find({})
