@@ -83,5 +83,25 @@ router.post('/create/:ideaId', authMiddleware, (req, res) => {
         //This pulled up the idea itself and then the feedback about it. So now I need to do something similar with the update route.
 })
 
+// Update Feedback, requiring authorization
+router.put('/:id', authMiddleware, async (req, res) => {
+    // We need to pull the feedback itself
+    // Check who made the feedback against the one making the request
+    // If they're the same, execute the route logic
+    //Locate the idea attached to the ID passed as a param
+    const feedbackCheck = await db.Idea.findOne({'feedback._id': req.params.id})
+    // This is picking the specific feedback that pulled the Idea in the first place.
+    const userFeedback = await feedbackCheck.feedback.find(fb => fb._id.toString() === req.params.id)
+    if (userFeedback.userId.toString() !== req.user.id) {
+        return res.status(401).json({message: "You are not authorized to modify this."})
+    } else {
+    db.Idea.findOneAndUpdate(
+        {'feedback._id': req.params.id},
+        {feedback: {...req.body, userId: req.user.id}},
+        {new: true})
+        .then(idea => res.json(idea))}
+        //This pulled up the idea with the feedback array attached to it.
+})
+
 //This line is needed or your middleware will break
 module.exports = router
