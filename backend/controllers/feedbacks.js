@@ -71,6 +71,12 @@ const authMiddleware = (req, res, next) => {
 
 // // === This block of code is for routes that do not require authorization. Once the Authorization testing works we can delete this code (after it's also tested to be successful in the frontend)
 
+//Read Feedback, does not require authorization
+router.get('/:ideaId', function (req, res) {
+    db.Idea.find({ideaId: req.params._id})
+        .then(idea => res.json(idea))
+})
+
 // Create Feedback, requiring authorization
 router.post('/create/:ideaId', authMiddleware, (req, res) => {
     //The Middleware check passed, so now we do this down here.
