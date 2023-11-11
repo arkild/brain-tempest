@@ -53,6 +53,7 @@ export async function signUp(user) {
 }
 //Log in
 export async function logIn(user) {
+    console.log("the login was attempted to be triggered")
     const {data} = await axios.post('/users/login', user)
     return data
 }
