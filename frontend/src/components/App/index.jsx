@@ -1,7 +1,11 @@
 import './styles.css'
 import {useState, useEffect} from 'react'
-import Listing from '../Listing'
-import Details from '../Details'
+import {Routes, Route, Link} from 'react-router-dom'
+// This line below isn't needed since we moved the listing rendering to the HomePage component.
+// import Listing from '../Listing'
+import DetailsPage from '../DetailsPage'
+import NotFoundPage from '../NotFoundPage'
+import HomePage from '../HomePage'
 
 function App() {
   // Store the data from the backend here
@@ -26,12 +30,13 @@ function App() {
 
 
   return (
-  <>
-    <h1>BrainTempest</h1>
-    <p>We're successfully pulling {ideas.length} ideas.</p>
-    <Listing ideas={ideas} setDetailsData={setDetailsData} />
-    {detailsData._id && <Details {...detailsData} />}
-  </>
+    <>
+    <Routes>
+      <Route path="/" element={<HomePage ideas={ideas} setDetailsData={setDetailsData}/>}/>
+      <Route path="/details" element={<DetailsPage {...detailsData} />} />
+      <Route path="/*" element={<NotFoundPage />} />
+    </Routes>
+    </>
   )
 
 }
