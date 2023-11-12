@@ -33,6 +33,23 @@ app.use('/feedback', feedbackCtrl)
 app.use('/ideas', ideaCtrl)
 app.use('/users', usersCtrl)
 
+// The Seed route (This will only seed when the URL is entered manually - there will be no option to seed from the site itself.)
+//(localhost:3000/seed)
+app.get('/seed', function (req, res) {
+    //Remove all of the ideas from the database
+    db.Idea.deleteMany({})
+        .then(removedIdeas => {
+            //deletedCount I believe is internally built into this
+            console.log(`We've successfully deleted ${removedIdeas.deletedCount} ideas from the database`)
+            db.Idea.insertMany(db.seedIdeas)
+            //insert the seed array
+                .then(addedIdeas => {
+                    console.log(`Added ${addedIdeas.length} ideas to the database.`)
+                    res.json(addedIdeas)
+                })
+        })
+});
+
 // Have the app listen to a specified port
 app.listen(process.env.PORT, function () {
     console.log('We have Express on port', process.env.PORT);

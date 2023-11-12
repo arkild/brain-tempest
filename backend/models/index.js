@@ -15,5 +15,6 @@ db.on('connected', function() {
 module.exports = {
     Feedback: require('./feedback'),
     Idea: require('./idea'),
-    User: require('./user')
+    User: require('./user'),
+    seedIdeas: require('./seed')
 }

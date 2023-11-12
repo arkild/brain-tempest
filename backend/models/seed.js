@@ -83,4 +83,7 @@ const seedData = [
                 feedback: "This is a really nifty idea and, although I don't have any projects I'm working on, I'm absolutely open to helping out anyone else with their projects by providing them with some useful information that they can take with them to their project design!",
                 userId: "654c285da4ecf10e13b76cc4",}]
         },
-        ]
+]
+
+//Export this seed data to models/index.js
+module.exports = seedData;
