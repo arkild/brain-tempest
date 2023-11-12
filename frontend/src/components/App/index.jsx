@@ -1,6 +1,6 @@
 import './styles.css'
 import {useState, useEffect} from 'react'
-import TestPage from '../TestPage'
+import Listing from '../Listing'
 
 function App() {
   // Store the data from the backend here
@@ -26,7 +26,7 @@ function App() {
   <>
     <h1>BrainTempest</h1>
     <p>We're successfully pulling {ideas.length} ideas.</p>
-    <img src={ideas[1].image}/>
+    <Listing ideas={ideas} />
   </>
   )
 
