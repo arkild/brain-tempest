@@ -1,10 +1,13 @@
 import './styles.css'
 import {useState, useEffect} from 'react'
 import Listing from '../Listing'
+import Details from '../Details'
 
 function App() {
   // Store the data from the backend here
   const [ideas, setIdeas] = useState([])
+  // This is for lifting state from the details on the ideas.
+  const [detailsData, setDetailsData] = useState({})
   useEffect(() => {
 
     //Define an async function to JSONify the query response
@@ -26,7 +29,8 @@ function App() {
   <>
     <h1>BrainTempest</h1>
     <p>We're successfully pulling {ideas.length} ideas.</p>
-    <Listing ideas={ideas} />
+    <Listing ideas={ideas} setDetailsData={setDetailsData} />
+    {detailsData._id && <Details {...detailsData} />}
   </>
   )
 
