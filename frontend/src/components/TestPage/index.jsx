@@ -22,7 +22,7 @@ export default function TestPage() {
     //When the form submits, execute authentication logic.
     async function handleSubmit(event) {
         //Don't let the page refresh
-        event.PreventDefault()
+        event.preventDefault()
         //Check what the URL parameter is to determine what request to make
         //Either way, the request till take the token produced from the form data and save it to local storage.
         if (formType === 'login') {
