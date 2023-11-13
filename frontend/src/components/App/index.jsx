@@ -15,21 +15,7 @@ function App() {
   const [ideas, setIdeas] = useState([])
   // This is for lifting state from the details on the ideas.
   const [detailsData, setDetailsData] = useState({})
-  useEffect(() => {
-
-    //Define an async function to JSONify the query response
-    //The getData function that's going to be used will not be pulling the API - instead, it's going to be pulling the data from the DB.
-    async function getData() {
-      const res = await fetch('/db/ideas')
-      //In our class APIs, we'd need to deconstruct the data, but I don't need to do that as my data is already in the form I need.
-      const data = await res.json()
-      setIdeas(data)
-    }
-
-    //Call the async function
-    //This URL is providing the app with the list of ideas created for the database
-    getData()
-  }, [])
+  //The useEffect used to be here, but was moved to the HomePage component
 
 
   return (
@@ -68,7 +54,7 @@ function App() {
     <Routes>
       {/* Default route will go to the Landing Page. */}
       <Route path="/" element={<LandingPage />} />
-      <Route path="/home" element={<HomePage ideas={ideas} setDetailsData={setDetailsData}/>}/>
+      <Route path="/home" element={<HomePage ideas={ideas} setDetailsData={setDetailsData} setIdeas={setIdeas} />}/>
       <Route path="/details" element={<DetailsPage {...detailsData} />} />
       <Route path="/about" element={<About />} />
       <Route path="/auth/:formType" element={<AuthFormPage />}/>

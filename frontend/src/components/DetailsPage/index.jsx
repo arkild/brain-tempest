@@ -9,11 +9,11 @@ export default function DetailsPage(idea) {
     //I'm going to put on the ability to delete the idea directly on the idea's details page.
     const navigate = useNavigate();
 
-    function handleDelete() {
-        console.log(idea._id)
+    function handleDelete(event) {
+        event.preventDefault()
         deleteIdea(idea._id)
-        navigate("/home")
-        window.location.reload();
+            .then(() => navigate("/"))
+        // window.location.reload();
     }
     return (
         

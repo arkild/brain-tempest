@@ -41,9 +41,8 @@ export default function IdeaPage() {
         //Post the idea in the backend
         postIdea({...createFormData})
         //Go back to the home page.
-        navigate('/home')
+            .then(navigate('/home'))
         //Then refresh after redirecting (probably a cleaner way to do this)
-        window.location.reload();
     }
 
     return (
