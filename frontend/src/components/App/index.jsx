@@ -48,6 +48,11 @@ function App() {
           </Link>
         </li>
         <li>
+          <Link to="/create">
+            <h4 className="text-white font-bold px-2">Create Idea</h4>
+          </Link>
+        </li>
+        <li>
           <Link to="/auth/signup">
             <h4 className="text-white font-bold px-2">Sign Up</h4>
           </Link>
@@ -67,6 +72,7 @@ function App() {
       <Route path="/details" element={<DetailsPage {...detailsData} />} />
       <Route path="/about" element={<About />} />
       <Route path="/auth/:formType" element={<AuthFormPage />}/>
+      <Route path="/create" element={<IdeaPage />}/>
       <Route path="/*" element={<NotFoundPage />} />
     </Routes>
     </>
