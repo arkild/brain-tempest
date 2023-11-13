@@ -37,7 +37,7 @@ export default function Feedback ({data, refreshFeedback}) {
     }
 
     //Default appearance of each comment
-    let feedbackElement = <div className="border-2 mx-auto">
+    let feedbackElement = <div className="border-2 mx-auto mb-16">
         <p className="font-bold">{data.name}</p>
         <p>Rating: {data.ideaRating}</p>
         <p>{data.feedback}</p>

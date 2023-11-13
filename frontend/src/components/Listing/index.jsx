@@ -9,7 +9,7 @@ export default function Listing({ideas, setDetailsData}) {
         listingList = ideas.map((idea, i) => <Card key={i} idea={idea} setDetailsData={setDetailsData} />)
     }
     return (
-        <div className="listing flex flex-wrap justify-around p-5">
+        <div className="listing p-5 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6 place-items-center">
             {listingList}
         </div>
     )

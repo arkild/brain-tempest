@@ -69,17 +69,18 @@ export default function FeedbackSection({ideaId}) {
     }
 
     //change the display of the button depending on form state
-    let buttonText = "Create"
+    let buttonText = "Submit some new feedback!"
     if (showCreateForm) {
-        buttonText = "Close"
+        buttonText = "(Close the form without submitting)"
     }
 
     return (
         <div>
-            <h1 className="text-xl font-bold">Current Feedback</h1>
-            <button onClick={toggleCreateForm} className="">
+            <div className="flex flex-col justify-center">
+            <h1 className="text-xl font-bold mt-5 text-center">Current Feedback</h1>
+            <button onClick={toggleCreateForm} className="bg-purple-800 text-white py-2 px-4 rounded-lg hover:bg-purple-900 m-2">
                 {buttonText}
-            </button>
+            </button></div>
             {showCreateForm && 
             <form onSubmit={handleSubmit} className="mx-auto">
                 <input
