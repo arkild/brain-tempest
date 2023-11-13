@@ -20,7 +20,7 @@ function App() {
     //Define an async function to JSONify the query response
     //The getData function that's going to be used will not be pulling the API - instead, it's going to be pulling the data from the DB.
     async function getData() {
-      const res = await fetch('http://localhost:3000/db/ideas')
+      const res = await fetch('/db/ideas')
       //In our class APIs, we'd need to deconstruct the data, but I don't need to do that as my data is already in the form I need.
       const data = await res.json()
       setIdeas(data)
