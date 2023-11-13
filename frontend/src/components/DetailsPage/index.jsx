@@ -12,7 +12,7 @@ export default function DetailsPage(idea) {
     function handleDelete(event) {
         event.preventDefault()
         deleteIdea(idea._id)
-            .then(() => navigate("/"))
+            .then(() => navigate("/home"))
         // window.location.reload();
     }
     return (
