@@ -42,6 +42,8 @@ export default function IdeaPage() {
         postIdea({...createFormData})
         //Go back to the home page.
         navigate('/home')
+        //Then refresh after redirecting (probably a cleaner way to do this)
+        window.location.reload();
     }
 
     return (
@@ -86,7 +88,7 @@ export default function IdeaPage() {
                             name="needHelp"
                             className=""
                             placeholder="What kind of help are you looking for with your idea?"
-                            value={createFormData.features}
+                            value={createFormData.needHelp}
                             onChange={handleInputChange}
                         />
                         <div>

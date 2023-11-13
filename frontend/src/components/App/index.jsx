@@ -9,6 +9,7 @@ import HomePage from '../HomePage'
 import About from '../About'
 import LandingPage from '../LandingPage'
 import AuthFormPage from '../AuthFormPage'
+import IdeaPage from '../IdeaPage'
 
 function App() {
   // Store the data from the backend here
