@@ -29,9 +29,9 @@ app.use(express.json())
 //Mount routes
 //I suppose the URLs don't mean too much in here as all of the URLs are going to be handled by react. We can almost treat these URLs like variables in their own way
 //I'm commenting out this line below until I need it.
-app.use('/feedback', feedbackCtrl)
-app.use('/ideas', ideaCtrl)
-app.use('/users', usersCtrl)
+app.use('/db/feedback', feedbackCtrl)
+app.use('/db/ideas', ideaCtrl)
+app.use('/db/users', usersCtrl)
 
 // The Seed route (This will only seed when the URL is entered manually - there will be no option to seed from the site itself.)
 //(localhost:3000/seed)
