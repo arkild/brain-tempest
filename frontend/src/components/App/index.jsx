@@ -1,4 +1,3 @@
-import './styles.css'
 import {useState, useEffect} from 'react'
 import {Routes, Route, Link} from 'react-router-dom'
 // This line below isn't needed since we moved the listing rendering to the HomePage component.

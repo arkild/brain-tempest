@@ -25,6 +25,9 @@ app.use(cors())
 // This allows post/put/patch routes
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
+// use the React build folder for static files
+app.use(express.static(path.join(path.dirname(__dirname), 'frontend', 'dist')))
+
 
 //Mount routes
 //I suppose the URLs don't mean too much in here as all of the URLs are going to be handled by react. We can almost treat these URLs like variables in their own way
@@ -49,6 +52,12 @@ app.get('/seed', function (req, res) {
                 })
         })
 });
+
+// Any other route not matching the routes above gets routed by React
+app.get('*', (req, res) => {
+    res.sendFile(path.join(path.dirname(__dirname), 'frontend', 'dist', 'index.html'));
+});
+
 
 // Have the app listen to a specified port
 app.listen(process.env.PORT, function () {
