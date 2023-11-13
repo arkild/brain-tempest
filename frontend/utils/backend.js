@@ -30,8 +30,9 @@ export async function deleteIdea(id) {
 
 // FEEDBACK ROUTES
 //Unsure about this one but I'm pretty sure I got it
-export async function postFeedback(id, feedback) {
-    const {data} = await axios.post(`/db/feedback/create/${id}`, feedback, authHeader)
+export async function postFeedback(ideaId, feedback) {
+    console.log(feedback)
+    const {data} = await axios.post(`/db/feedback/create/${ideaId}`, feedback, authHeader)
     return data
 }
 //Updating a feedback comment (requires auth)
@@ -53,7 +54,6 @@ export async function signUp(user) {
 }
 //Log in
 export async function logIn(user) {
-    console.log("the login was attempted to be triggered")
     const {data} = await axios.post('/db/users/login', user)
     return data
 }

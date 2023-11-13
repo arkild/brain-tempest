@@ -6,6 +6,9 @@ import {Routes, Route, Link} from 'react-router-dom'
 import DetailsPage from '../DetailsPage'
 import NotFoundPage from '../NotFoundPage'
 import HomePage from '../HomePage'
+import About from '../About'
+import LandingPage from '../LandingPage'
+import AuthFormPage from '../AuthFormPage'
 
 function App() {
   // Store the data from the backend here
@@ -31,9 +34,39 @@ function App() {
 
   return (
     <>
+      <nav className="bg-gray-800 shadow-lg">
+        <div>
+          <Link to="/home">
+            <h2 className="text-white font-bold">BrainTempest</h2>
+          </Link>
+        </div>
+        <div className="flex-grow">
+        <ul className="flex justify-end text-lg font-medium">
+        <li>
+          <Link to="/about">
+            <h4 className="text-white font-bold px-2">About us</h4>
+          </Link>
+        </li>
+        <li>
+          <Link to="/auth/signup">
+            <h4 className="text-white font-bold px-2">Sign Up</h4>
+          </Link>
+        </li>
+        <li>
+          <Link to="/auth/login">
+            <h4 className="text-white font-bold px-2">Log In</h4>
+          </Link>
+        </li>
+        </ul>
+        </div>
+      </nav>
     <Routes>
-      <Route path="/" element={<HomePage ideas={ideas} setDetailsData={setDetailsData}/>}/>
+      {/* Default route will go to the Landing Page. */}
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/home" element={<HomePage ideas={ideas} setDetailsData={setDetailsData}/>}/>
       <Route path="/details" element={<DetailsPage {...detailsData} />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/auth/:formType" element={<AuthFormPage />}/>
       <Route path="/*" element={<NotFoundPage />} />
     </Routes>
     </>

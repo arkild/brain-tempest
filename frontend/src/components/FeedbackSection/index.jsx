@@ -45,7 +45,7 @@ export default function FeedbackSection({ideaId}) {
         //no reloads
         event.preventDefault();
         //clear the form
-        setCreatFormData({
+        setCreateFormData({
             name: '',
             ideaRating: 0,
             feedback: '',
@@ -53,7 +53,7 @@ export default function FeedbackSection({ideaId}) {
         //close the form
         setShowCreateForm(false)
         //post the feedback in the backend.
-        postFeedback({...createFormData, ideaId: ideaId})
+        postFeedback(ideaId, createFormData)
             .then(() => refreshFeedback())
     }
 
