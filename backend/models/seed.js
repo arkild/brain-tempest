@@ -22,7 +22,7 @@ const seedData = [
             feedback: [{
                 name: "Frad's Mother",
                 ideaRating: 1,
-                feedback: "My son went to this carnival months ago and I haven't seen him come back! What's going on?! Where is he?!",
+                feedback: "My son went to this carnival months ago and he hasn't come back! What's going on?! Where is he?!",
                 userId: "654c285da4ecf10e13b76cc4",}]
         },
         {

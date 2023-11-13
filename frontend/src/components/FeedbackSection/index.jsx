@@ -82,33 +82,39 @@ export default function FeedbackSection({ideaId}) {
                 {buttonText}
             </button></div>
             {showCreateForm && 
-            <form onSubmit={handleSubmit} className="mx-auto">
+            <form onSubmit={handleSubmit} className="mx-auto p-2">
+                <p className="mb-2">Enter your name:</p>
                 <input
                     name="name"
-                    className=""
-                    placeholder="Your Name"
+                    className="bg-gray-700 w-[60vw] rounded-lg text-center"
+                    placeholder="Captain Attractive"
                     value={createFormData.name}
                     onChange={handleInputChange}
                 />
+                <br/><br/>
+                <p className="mb-2">Rate the idea on a scale from 0-10:</p>
+                <select
+                name="ideaRating"
+                value={createFormData.ideaRating}
+                onChange={handleInputChange}
+                className="border border-gray-500 rounded-md p-2 mb-2">
+                {/* This takes an array of values between 0-10 and maps them as options, kinda like the way we mapped out all the options in Furever Friends manually. (from ChatGPT) */}
+                {[...Array(11).keys()].map((val) => (
+                    <option key={val} value={val}>
+                    {val}
+                    </option>
+                ))}
+                </select>
                 <br/>
-                <input
-                    name="ideaRating"
-                    className=""
-                    placeholder="0"
-                    min="0"
-                    max="10"
-                    type="number"
-                    value={createFormData.ideaRating}
-                    onChange={handleInputChange} />
-                <br/>
+                <p className="mb-2">Your feedback:</p>
                 <textarea
                     name="feedback"
-                    className=""
-                    placeholder="Let us know what you think!"
+                    className="bg-gray-700 w-[60vw] rounded-lg text-center resize-none"
+                    placeholder="Be nice. Remember, humans made this!"
                     value={createFormData.feedback}
                     onChange={handleInputChange}
                 />
-                <button type="submit" className="">
+                <button type="submit" className="bg-blue-800 text-white py-2 px-4 rounded-lg hover:bg-blue-900 m-2">
                     Submit
                 </button>
             </form>

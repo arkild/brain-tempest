@@ -37,50 +37,56 @@ export default function Feedback ({data, refreshFeedback}) {
     }
 
     //Default appearance of each comment
-    let feedbackElement = <div className="border-2 mx-auto mb-16">
-        <p className="font-bold">{data.name}</p>
+    let feedbackElement = <div className="border-2 mx-auto mb-16 p-5">
+        <p className="font-bold">Name: {data.name}</p>
         <p>Rating: {data.ideaRating}</p>
-        <p>{data.feedback}</p>
-        <div>
-        <button onClick={() => {setShowEditForm(true)}}>Edit</button>
-        <button onClick={handleDelete}>Delete</button>
+        <p>"{data.feedback}"</p>
+        <div className="flex justify-between">
+        <button className="bg-green-800 text-white py-2 px-4 rounded-lg hover:bg-green-900 mt-4" onClick={() => {setShowEditForm(true)}}>Edit</button>
+        <button className="bg-red-800 text-white py-2 px-4 rounded-lg hover:bg-red-900 mt-4" onClick={handleDelete}>Delete</button>
         </div>
     </div>
 
     //We're changing the feedback to a form if the Edit button is clicked and the "showEditForm" variable is true.
     if (showEditForm) {
-        feedbackElement = <form onSubmit={handleSubmit} className="border-2 mx-auto">
+        feedbackElement = <form onSubmit={handleSubmit} className="border-2 mx-auto p-4">
+            <p className="mb-2">Edit name:</p>
             <input 
                 name="name"
-                className="w-full bg-gray-100"
+                className="bg-gray-700 w-[60vw] rounded-lg text-center"
                 placeholder="Your name"
                 value={editFormData.name}
                 onChange={handleInputChange} />
-            <br/>
-            <input
+            <br/><br/>
+            <p className="mb-2">Edit rating:</p>
+            <select
                 name="ideaRating"
-                className=""
-                placeholder="0"
-                min="0"
-                max="10"
-                type="number"
+                className="border border-gray-500 rounded-md p-2 mb-2"
                 value={editFormData.ideaRating}
-                onChange={handleInputChange} />
+                onChange={handleInputChange}>
+                {/* This takes an array of values between 0-10 and maps them as options, kinda like the way we mapped out all the options in Furever Friends manually. (from ChatGPT) */}
+                {[...Array(11).keys()].map((val) => (
+                    <option key={val} value={val}>
+                    {val}
+                    </option>
+                ))}
+                </select>
             <br/>
+            <p className="mb-2">Edit Feedback:</p>
             <textarea
                 name="feedback"
-                className=""
+                className="bg-gray-700 w-[60vw] rounded-lg text-center resize-none"
                 placeholder="Let us know what you think!"
                 value={editFormData.feedback}
                 onChange={handleInputChange}
             />
-            <div>
+            <div className="flex justify-between">
                 <button onClick={() => {setShowEditForm(false)}}
-                className="">
+                className="bg-green-800 text-white py-2 px-4 rounded-lg hover:bg-green-900 mt-4">
                     Close
                 </button>
                 <button type="submit"
-                className="">
+                className="bg-blue-800 text-white py-2 px-4 rounded-lg hover:bg-blue-900 mt-4">
                     Submit
                 </button>
             </div>
