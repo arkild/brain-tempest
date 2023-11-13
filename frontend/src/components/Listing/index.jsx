@@ -9,7 +9,7 @@ export default function Listing({ideas, setDetailsData}) {
         listingList = ideas.map((idea, i) => <Card key={i} idea={idea} setDetailsData={setDetailsData} />)
     }
     return (
-        <div className="listing">
+        <div className="listing flex flex-wrap justify-around p-5">
             {listingList}
         </div>
     )

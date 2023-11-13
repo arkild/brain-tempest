@@ -35,32 +35,32 @@ function App() {
 
   return (
     <>
-      <nav className="bg-gray-800 shadow-lg">
+      <nav className="bg-gray-800 shadow-lg border-b-[6px]">
         <div>
           <Link to="/home">
-            <h2 className="text-white font-bold">BrainTempest</h2>
+            <h2 className="text-white font-bold text-2xl mt-4 ml-6 hover:text-blue-400">BrainTempest</h2>
           </Link>
         </div>
         <div className="flex-grow">
         <ul className="flex justify-end text-lg font-medium">
         <li>
           <Link to="/about">
-            <h4 className="text-white font-bold px-2">About us</h4>
+            <h4 className="text-white hover:text-yellow-500 hover:text-xl font-bold px-2">About us</h4>
           </Link>
         </li>
         <li>
           <Link to="/create">
-            <h4 className="text-white font-bold px-2">Create Idea</h4>
+            <h4 className="text-white hover:text-yellow-500 hover:text-xl font-bold px-2">Create Idea</h4>
           </Link>
         </li>
         <li>
           <Link to="/auth/signup">
-            <h4 className="text-white font-bold px-2">Sign Up</h4>
+            <h4 className="text-white hover:text-yellow-500 hover:text-xl font-bold px-2">Sign Up</h4>
           </Link>
         </li>
         <li>
           <Link to="/auth/login">
-            <h4 className="text-white font-bold px-2">Log In</h4>
+            <h4 className="text-white hover:text-yellow-500 hover:text-xl font-bold px-2">Log In</h4>
           </Link>
         </li>
         </ul>
