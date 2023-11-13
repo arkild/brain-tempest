@@ -111,9 +111,8 @@ router.get('/', function(req, res) {
 
 //Read a specific idea in detail, does not require authorization
 router.get('/:ideaId', function (req, res) {
-    db.Idea.find({ideaId: req.params._id})
-        .then(idea => res.json(idea))
-})
+	db.Idea.findById(req.params.ideaId).then((idea) => res.json(idea));
+});
 
 //This line is needed or your middleware will break
 module.exports = router

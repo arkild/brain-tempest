@@ -62,7 +62,7 @@ export default function FeedbackSection({ideaId}) {
     if (feedback.length > 0) {
         feedbackElements = feedback.map(feedback => {
             return <Feedback
-                key={feedback.id}
+                key={feedback._id}
                 data={feedback}
                 refreshFeedback={refreshFeedback}/>
         })

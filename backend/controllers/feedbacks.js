@@ -73,7 +73,7 @@ const authMiddleware = (req, res, next) => {
 
 //Read Feedback, does not require authorization
 router.get('/:ideaId', function (req, res) {
-    db.Idea.find({ideaId: req.params.ideaId})
+    db.Idea.find({ideaId: req.params._id})
         .then(idea => res.json(idea))
 })
 
