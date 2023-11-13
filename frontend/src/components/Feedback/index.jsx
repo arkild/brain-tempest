@@ -26,8 +26,8 @@ export default function Feedback ({data, refreshFeedback}) {
         //close the form
         setShowEditForm(false)
         //update the feedback in the backend
-        updateFeedback(editFormData, data._id)
-            .then(() => refreshFeedback)
+        updateFeedback(data._id, editFormData)
+            .then(() => refreshFeedback())
     }
 
     //Delete Feedback
