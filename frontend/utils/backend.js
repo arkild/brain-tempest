@@ -49,6 +49,7 @@ export async function deleteFeedback(id) {
 //USER ROUTES
 //Sign up
 export async function signUp(user) {
+    console.log(user)
     const {data} = await axios.post('/db/users/signup', user)
     return data
 }

@@ -27,7 +27,7 @@ export default function AuthFormPage() {
             localStorage.setItem('userToken', token)
         } else {
             const {token} = await signUp(formData)
-            localStorate.setItem('userToken', token)
+            localStorage.setItem('userToken', token)
         }
         // redirect to the home page after the signup/login
         navigate('/home')
