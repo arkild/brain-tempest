@@ -36,16 +36,16 @@ export default function AuthFormPage() {
 
 
     return (
-        <div>
-            <div>
-                <h2 className="">{actionText}</h2>
+        <div className="flex items-center justify-center h-screen">
+            <div className="border-blue-600 border-2 p-4">
+                <h2 className="text-3xl mb-5">{actionText}</h2>
                 <form className="space-y-6" onSubmit={handleSubmit}>
                     <div>
-                        <label className="" htmlFor="email">
+                        <label className="text-xl block" htmlFor="email">
                             Email
                         </label>
                         <input
-                            className=""
+                            className="w-[45vw] bg-gray-700 rounded-lg text-center p-2"
                             id="email"
                             name="email"
                             type="email"
@@ -56,11 +56,11 @@ export default function AuthFormPage() {
                         />
                     </div>
                     <div>
-                        <label className="" htmlFor="password">
+                        <label className="text-xl block" htmlFor="password">
                             Password
                         </label>
                         <input
-                            className=""
+                            className="w-[45vw] bg-gray-700 rounded-lg text-center p-2"
                             id="password"
                             name="password"
                             type="password"
@@ -73,7 +73,7 @@ export default function AuthFormPage() {
                     </div>
                     <div>
                         <button type="submit"
-                            className="">
+                            className="bg-blue-800 text-white py-2 px-4 rounded-lg hover:bg-blue-900 m-2">
                                 {actionText}
                             </button>
                     </div>

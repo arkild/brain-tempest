@@ -55,7 +55,7 @@ export default function IdeaPage() {
                         <p className="">The name of your project:</p>
                         <input
                             name="name"
-                            className="bg-gray-700 w-[60vw] rounded-lg text-center resize-none"
+                            className="bg-gray-700 w-[60vw] rounded-lg text-center resize-none mb-6"
                             placeholder="Facekickers Anonymous"
                             value={createFormData.name}
                             onChange={handleInputChange}
@@ -64,7 +64,7 @@ export default function IdeaPage() {
                         <p className="">What's the problem your project is trying to solve?</p>
                         <textarea
                             name="problem"
-                            className="bg-gray-700 w-[60vw] rounded-lg text-center resize-none"
+                            className="bg-gray-700 w-[60vw] rounded-lg text-center resize-none mb-6"
                             placeholder="I want to be able to kick people in the face, but I don't want to get in trouble for doing it"
                             value={createFormData.problem}
                             onChange={handleInputChange}
@@ -73,7 +73,7 @@ export default function IdeaPage() {
                         <p className="">To add an image, please paste the link to it <i>(upload functionality coming soon!)</i></p>
                         <input
                             name="image"
-                            className="bg-gray-700 w-[60vw] rounded-lg text-center resize-none"
+                            className="bg-gray-700 w-[60vw] rounded-lg text-center resize-none mb-6"
                             placeholder="(use '/phil.png' for testing if you don't have an image)"
                             value={createFormData.image}
                             onChange={handleInputChange}
@@ -82,7 +82,7 @@ export default function IdeaPage() {
                         <p className="">What are the features your idea currently has, or that you're planning to implement?</p>
                         <textarea
                             name="features"
-                            className="bg-gray-700 w-[60vw] rounded-lg text-center resize-none"
+                            className="bg-gray-700 w-[60vw] rounded-lg text-center resize-none mb-6"
                             placeholder="I'll surprise you :D"
                             value={createFormData.features}
                             onChange={handleInputChange}
@@ -91,7 +91,7 @@ export default function IdeaPage() {
                         <p className="">Where would you like your feedback to be centered around? Where do you feel you need help?</p>
                         <textarea
                             name="needHelp"
-                            className="bg-gray-700 w-[60vw] rounded-lg text-center resize-none"
+                            className="bg-gray-700 w-[60vw] rounded-lg text-center resize-none mb-6"
                             placeholder="It's too hard to actually do what I want without getting arrested for assault"
                             value={createFormData.needHelp}
                             onChange={handleInputChange}
