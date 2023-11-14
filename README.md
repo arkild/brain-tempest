@@ -23,9 +23,9 @@ This project is a hub for people to look at other's ideas they're trying to brai
 To use the app, simply go to the link on the repository, or you can [click here.](https://brain-tempest-cbe78bd8ec88.herokuapp.com/)
 
 ## User Stories
-As a person starved of creative ideas for software development projects, I would like to use this website to be able to put out anything in my mind and see if others can provide some tips or suggestions to get the creative juices flowing.
-As a creative mind but one who's more of an ideas person than a builder, I would like to use this website to provide people with the tools and ideas they need to get things off the ground by leaving feedback on their ideas.
-As a budding developer, I'd like to reach out to some people with good ideas who need an extra push and see if I can not only give them that assistance conceptually but also possibly communicate and collaborate with them.
+- As a person starved of creative ideas for software development projects, I would like to use this website to be able to put out anything in my mind and see if others can provide some tips or suggestions to get the creative juices flowing.
+- As a creative mind but one who's more of an ideas person than a builder, I would like to use this website to provide people with the tools and ideas they need to get things off the ground by leaving feedback on their ideas.
+- As a budding developer, I'd like to reach out to some people with good ideas who need an extra push and see if I can not only give them that assistance conceptually but also possibly communicate and collaborate with them.
 
 
 ## Wireframes
